@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="PackageConfigToBindPaths">
+  <PropertyGroup>
+    <PackagesFolder>$(MSBuildThisFileDirectory)..\packages\</PackagesFolder>
+  </PropertyGroup>
+
+  <Target Name="PackageConfigToBindPaths"
+          Condition=" Exists('$(MSBuildProjectDirectory)\packages.config') ">
+    <!--
+      First step is to read all the NuGet package identifiers out of the project's packages.config.
+    -->
+    <XmlPeek XmlInputPath="$(MSBuildProjectDirectory)\packages.config" Query="packages/package/@id">
+      <Output TaskParameter="Result" ItemName="ReadPackages" />
+    </XmlPeek>
+
+    <!--
+      Second step is to create Packages items with "PropName" metadata that is a valid MSBuild property name.
+      In this case, that means removing dots (".").
+    -->
+    <CreateItem Include="@(ReadPackages)" AdditionalMetadata='PropName=$([System.Text.RegularExpressions.Regex]::Replace("%(Identity)","\.",""))'>
+      <Output TaskParameter="Include" ItemName="Packages" />
+    </CreateItem>
+
+    <!--
+      Third step is to read the project's packages.config again loading the NuGet package version into
+      a property named for the "PropName" metadata on each Package.
+    -->
+    <XmlPeek XmlInputPath="$(MSBuildProjectDirectory)\packages.config" Query="packages/package[@id='@(Packages)']/@version">
+      <Output TaskParameter="Result" PropertyName="%(PropName)" />
+    </XmlPeek>
+
+    <!--
+      Finally, we create bind paths to the root of each Package in the packages folder. Notice how
+      the "PropName" metadata on the Packages item is dereferenced as a Property to get the version
+      from step 3 above.
+    -->
+    <ItemGroup>
+      <LinkerBindInputPaths Include="$(PackagesFolder)%(Packages.Identity).$(%(PropName))\" Condition=" '$(%(PropName))'!='' " />
+    </ItemGroup>
+
+    <Message Importance="low" Text="Bind paths added from packages.config: @(LinkerBindInputPaths)" />
+  </Target>
+
+  <Target Name="SetWixVersion"
+          DependsOnTargets="GetBuildVersion"
+          AfterTargets="CalculateDefineConstants">
+    <PropertyGroup>
+      <DefineConstants>$(DefineConstants);WixMsiProductVersion=$(BuildVersionSimple);WixMajor=4;WixMajorMinor=$(MajorMinorVersion)</DefineConstants>
+    </PropertyGroup>
+  </Target>
+</Project>

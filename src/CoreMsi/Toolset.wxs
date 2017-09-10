@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <!--
+        <CustomActionRef Id="WixBroadcastEnvironmentChange" />
+        -->
+
+        <ComponentGroup Id="ToolsetComponents" Directory="BinFolder">
+            <!--
+            <Component>
+                <File Source="candle.exe" />
+                <File Source="candle.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="darice.cub" />
+            </Component>
+
+            <Component>
+                <File Source="dark.exe" />
+                <File Source="dark.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="heat.exe" />
+                <File Source="heat.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="insignia.exe" />
+                <File Source="insignia.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="light.exe" />
+                <File Source="light.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="lit.exe" />
+                <File Source="lit.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="melt.exe" />
+                <File Source="melt.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="mergemod.cub" />
+            </Component>
+
+            <Component>
+                <File Source="mergemod.dll" />
+            </Component>
+
+            <Component>
+                <File Source="mspatchc.dll" />
+            </Component>
+
+            <Component>
+                <File Source="pyro.exe" />
+                <File Source="pyro.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="shine.exe" />
+                <File Source="shine.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="smoke.exe" />
+                <File Source="smoke.exe.config" />
+            </Component>
+
+            <Component>
+                <File Source="torch.exe" />
+                <File Source="torch.exe.config" />
+            </Component>
+            -->
+
+            <Component>
+                <File Source="tools\wix.exe" />
+                <Environment Id="WIXenv" Name="WIX" Action="set" System="yes" Value="[INSTALLFOLDER]" />
+            </Component>
+
+            <Component>
+                <File Source="tools\wix.dll" />
+                <File Source="tools\wix.deps.json" />
+                <File Source="tools\wix.runtimeconfig.json" />
+            </Component>
+
+            <Component><File Source="tools\winterop.dll" /></Component>
+            <Component><File Source="tools\WixToolset.BuildTasks.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Core.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Core.Native.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Data.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Dtf.Resources.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Dtf.WindowsInstaller.dll" /></Component>
+            <Component><File Source="tools\WixToolset.Extensibility.dll" /></Component>
+
+<!--
+            <Component><File Source="tools\WixCop.exe" /></Component>
+
+            <Component><File Source="ThmViewer.exe" /></Component>
+            <Component><File Source="ThmGen.exe" /></Component>
+ -->
+
+            <ComponentGroupRef Id="DotnetCoreComponents" />
+            <!-- <ComponentGroupRef Id="BurnComponents" /> -->
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="DotnetCoreComponents" Directory="BinFolder">
+            <Component><File Source="tools\api-ms-win-core-console-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-datetime-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-debug-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-errorhandling-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-file-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-file-l1-2-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-file-l2-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-handle-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-heap-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-interlocked-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-libraryloader-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-localization-l1-2-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-memory-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-namedpipe-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-processenvironment-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-processthreads-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-processthreads-l1-1-1.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-profile-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-rtlsupport-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-string-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-synch-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-synch-l1-2-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-sysinfo-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-timezone-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-core-util-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-conio-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-convert-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-environment-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-filesystem-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-heap-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-locale-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-math-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-multibyte-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-private-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-process-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-runtime-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-stdio-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-string-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-time-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\api-ms-win-crt-utility-l1-1-0.dll" /></Component>
+            <Component><File Source="tools\clrcompression.dll" /></Component>
+            <Component><File Source="tools\clretwrc.dll" /></Component>
+            <Component><File Source="tools\clrjit.dll" /></Component>
+            <Component><File Source="tools\coreclr.dll" /></Component>
+            <Component><File Source="tools\dbgshim.dll" /></Component>
+            <Component><File Source="tools\hostfxr.dll" /></Component>
+            <Component><File Source="tools\hostpolicy.dll" /></Component>
+            <Component><File Source="tools\Microsoft.Build.Framework.dll" /></Component>
+            <Component><File Source="tools\Microsoft.Build.Tasks.Core.dll" /></Component>
+            <Component><File Source="tools\Microsoft.Build.Utilities.Core.dll" /></Component>
+            <Component><File Source="tools\Microsoft.CSharp.dll" /></Component>
+            <Component><File Source="tools\Microsoft.DiaSymReader.Native.x86.dll" /></Component>
+            <Component><File Source="tools\Microsoft.VisualBasic.dll" /></Component>
+            <Component><File Source="tools\Microsoft.Win32.Primitives.dll" /></Component>
+            <Component><File Source="tools\Microsoft.Win32.Registry.dll" /></Component>
+            <Component><File Source="tools\mscordaccore.dll" /></Component>
+            <Component><File Source="tools\mscordaccore_x86_x86_4.6.00001.0.dll" /></Component>
+            <Component><File Source="tools\mscordbi.dll" /></Component>
+            <Component><File Source="tools\mscorlib.dll" /></Component>
+            <Component><File Source="tools\mscorrc.debug.dll" /></Component>
+            <Component><File Source="tools\mscorrc.dll" /></Component>
+            <Component><File Source="tools\netstandard.dll" /></Component>
+            <Component><File Source="tools\sos.dll" /></Component>
+            <Component><File Source="tools\SOS.NETCore.dll" /></Component>
+            <Component><File Source="tools\sos_x86_x86_4.6.00001.0.dll" /></Component>
+            <Component><File Source="tools\System.AppContext.dll" /></Component>
+            <Component><File Source="tools\System.Buffers.dll" /></Component>
+            <Component><File Source="tools\System.Collections.Concurrent.dll" /></Component>
+            <Component><File Source="tools\System.Collections.dll" /></Component>
+            <Component><File Source="tools\System.Collections.Immutable.dll" /></Component>
+            <Component><File Source="tools\System.Collections.NonGeneric.dll" /></Component>
+            <Component><File Source="tools\System.Collections.Specialized.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.Annotations.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.Composition.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.DataAnnotations.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.EventBasedAsync.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.ComponentModel.TypeConverter.dll" /></Component>
+            <Component><File Source="tools\System.Configuration.dll" /></Component>
+            <Component><File Source="tools\System.Console.dll" /></Component>
+            <Component><File Source="tools\System.Core.dll" /></Component>
+            <Component><File Source="tools\System.Data.Common.dll" /></Component>
+            <Component><File Source="tools\System.Data.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.Contracts.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.Debug.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.DiagnosticSource.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.FileVersionInfo.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.Process.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.StackTrace.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.TextWriterTraceListener.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.Tools.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.TraceSource.dll" /></Component>
+            <Component><File Source="tools\System.Diagnostics.Tracing.dll" /></Component>
+            <Component><File Source="tools\System.dll" /></Component>
+            <Component><File Source="tools\System.Drawing.dll" /></Component>
+            <Component><File Source="tools\System.Drawing.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.Dynamic.Runtime.dll" /></Component>
+            <Component><File Source="tools\System.Globalization.Calendars.dll" /></Component>
+            <Component><File Source="tools\System.Globalization.dll" /></Component>
+            <Component><File Source="tools\System.Globalization.Extensions.dll" /></Component>
+            <Component><File Source="tools\System.IO.Compression.dll" /></Component>
+            <Component><File Source="tools\System.IO.Compression.FileSystem.dll" /></Component>
+            <Component><File Source="tools\System.IO.Compression.ZipFile.dll" /></Component>
+            <Component><File Source="tools\System.IO.dll" /></Component>
+            <Component><File Source="tools\System.IO.FileSystem.AccessControl.dll" /></Component>
+            <Component><File Source="tools\System.IO.FileSystem.dll" /></Component>
+            <Component><File Source="tools\System.IO.FileSystem.DriveInfo.dll" /></Component>
+            <Component><File Source="tools\System.IO.FileSystem.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.IO.FileSystem.Watcher.dll" /></Component>
+            <Component><File Source="tools\System.IO.IsolatedStorage.dll" /></Component>
+            <Component><File Source="tools\System.IO.MemoryMappedFiles.dll" /></Component>
+            <Component><File Source="tools\System.IO.Pipes.dll" /></Component>
+            <Component><File Source="tools\System.IO.UnmanagedMemoryStream.dll" /></Component>
+            <Component><File Source="tools\System.Linq.dll" /></Component>
+            <Component><File Source="tools\System.Linq.Expressions.dll" /></Component>
+            <Component><File Source="tools\System.Linq.Parallel.dll" /></Component>
+            <Component><File Source="tools\System.Linq.Queryable.dll" /></Component>
+            <Component><File Source="tools\System.Net.dll" /></Component>
+            <Component><File Source="tools\System.Net.Http.dll" /></Component>
+            <Component><File Source="tools\System.Net.HttpListener.dll" /></Component>
+            <Component><File Source="tools\System.Net.Mail.dll" /></Component>
+            <Component><File Source="tools\System.Net.NameResolution.dll" /></Component>
+            <Component><File Source="tools\System.Net.NetworkInformation.dll" /></Component>
+            <Component><File Source="tools\System.Net.Ping.dll" /></Component>
+            <Component><File Source="tools\System.Net.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.Net.Requests.dll" /></Component>
+            <Component><File Source="tools\System.Net.Security.dll" /></Component>
+            <Component><File Source="tools\System.Net.ServicePoint.dll" /></Component>
+            <Component><File Source="tools\System.Net.Sockets.dll" /></Component>
+            <Component><File Source="tools\System.Net.WebClient.dll" /></Component>
+            <Component><File Source="tools\System.Net.WebHeaderCollection.dll" /></Component>
+            <Component><File Source="tools\System.Net.WebProxy.dll" /></Component>
+            <Component><File Source="tools\System.Net.WebSockets.Client.dll" /></Component>
+            <Component><File Source="tools\System.Net.WebSockets.dll" /></Component>
+            <Component><File Source="tools\System.Numerics.dll" /></Component>
+            <Component><File Source="tools\System.Numerics.Vectors.dll" /></Component>
+            <Component><File Source="tools\System.ObjectModel.dll" /></Component>
+            <Component><File Source="tools\System.Private.CoreLib.dll" /></Component>
+            <Component><File Source="tools\System.Private.DataContractSerialization.dll" /></Component>
+            <Component><File Source="tools\System.Private.Uri.dll" /></Component>
+            <Component><File Source="tools\System.Private.Xml.dll" /></Component>
+            <Component><File Source="tools\System.Private.Xml.Linq.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.DispatchProxy.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Emit.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Emit.ILGeneration.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Emit.Lightweight.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Extensions.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Metadata.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.Reflection.TypeExtensions.dll" /></Component>
+            <Component><File Source="tools\System.Resources.Reader.dll" /></Component>
+            <Component><File Source="tools\System.Resources.ResourceManager.dll" /></Component>
+            <Component><File Source="tools\System.Resources.Writer.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.CompilerServices.VisualC.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Extensions.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Handles.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.InteropServices.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.InteropServices.RuntimeInformation.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.InteropServices.WindowsRuntime.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Loader.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Numerics.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Serialization.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Serialization.Formatters.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Serialization.Json.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Serialization.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.Runtime.Serialization.Xml.dll" /></Component>
+            <Component><File Source="tools\System.Security.AccessControl.dll" /></Component>
+            <Component><File Source="tools\System.Security.Claims.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.Algorithms.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.Cng.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.Csp.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.Encoding.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.OpenSsl.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.Primitives.dll" /></Component>
+            <Component><File Source="tools\System.Security.Cryptography.X509Certificates.dll" /></Component>
+            <Component><File Source="tools\System.Security.dll" /></Component>
+            <Component><File Source="tools\System.Security.Principal.dll" /></Component>
+            <Component><File Source="tools\System.Security.Principal.Windows.dll" /></Component>
+            <Component><File Source="tools\System.Security.SecureString.dll" /></Component>
+            <Component><File Source="tools\System.ServiceModel.Web.dll" /></Component>
+            <Component><File Source="tools\System.ServiceProcess.dll" /></Component>
+            <Component><File Source="tools\System.Text.Encoding.CodePages.dll" /></Component>
+            <Component><File Source="tools\System.Text.Encoding.dll" /></Component>
+            <Component><File Source="tools\System.Text.Encoding.Extensions.dll" /></Component>
+            <Component><File Source="tools\System.Text.RegularExpressions.dll" /></Component>
+            <Component><File Source="tools\System.Threading.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Overlapped.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Tasks.Dataflow.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Tasks.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Tasks.Extensions.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Tasks.Parallel.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Thread.dll" /></Component>
+            <Component><File Source="tools\System.Threading.ThreadPool.dll" /></Component>
+            <Component><File Source="tools\System.Threading.Timer.dll" /></Component>
+            <Component><File Source="tools\System.Transactions.dll" /></Component>
+            <Component><File Source="tools\System.Transactions.Local.dll" /></Component>
+            <Component><File Source="tools\System.ValueTuple.dll" /></Component>
+            <Component><File Source="tools\System.Web.dll" /></Component>
+            <Component><File Source="tools\System.Web.HttpUtility.dll" /></Component>
+            <Component><File Source="tools\System.Windows.dll" /></Component>
+            <Component><File Source="tools\System.Xml.dll" /></Component>
+            <Component><File Source="tools\System.Xml.Linq.dll" /></Component>
+            <Component><File Source="tools\System.Xml.ReaderWriter.dll" /></Component>
+            <Component><File Source="tools\System.Xml.Serialization.dll" /></Component>
+            <Component><File Source="tools\System.Xml.XDocument.dll" /></Component>
+            <Component><File Source="tools\System.Xml.XmlDocument.dll" /></Component>
+            <Component><File Source="tools\System.Xml.XmlSerializer.dll" /></Component>
+            <Component><File Source="tools\System.Xml.XPath.dll" /></Component>
+            <Component><File Source="tools\System.Xml.XPath.XDocument.dll" /></Component>
+            <Component><File Source="tools\ucrtbase.dll" /></Component>
+            <Component><File Source="tools\WindowsBase.dll" /></Component>
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="BurnComponents">
+            <Component Directory="BurnX86Folder">
+                <File Source="!(bindpath.x86)\x86\burn.exe" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

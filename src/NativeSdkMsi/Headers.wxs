@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <ComponentGroup Id="HeaderComponents">
+            <!-- <ComponentGroupRef Id="BurnHeaderComponents" /> -->
+            <ComponentGroupRef Id="DutilHeaderComponents" />
+            <ComponentGroupRef Id="WcautilHeaderComponents" />
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="BurnHeaderComponents" Directory="SdkIncludeFolder">
+            <Component>
+                <File Source="libs\balutil\inc\BAFunctions.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\BalBaseBAFunctions.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\BalBaseBAFunctionsProc.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\BalBaseBootstrapperApplication.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\BalBaseBootstrapperApplicationProc.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\BalBootstrapperEngine.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\balcondition.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\balinfo.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\balretry.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\balutil.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\balutil\inc\IBAFunctions.h" />
+            </Component>
+
+            <Component>
+                <File Source="BootstrapperApplication.h" />
+            </Component>
+
+            <Component>
+                <File Source="BootstrapperEngine.h" />
+            </Component>
+
+            <Component>
+                <File Source="IBootstrapperApplication.h" />
+            </Component>
+
+            <Component>
+                <File Source="IBootstrapperEngine.h" />
+            </Component>
+
+            <Component>
+                <File Source="libs\deputil\inc\deputil.h" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="DutilHeaderComponents" Directory="SdkIncludeFolder">
+            <Component>
+                <File Source="build\native\include\aclutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\apputil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\apuputil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\atomutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\butil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\buffutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\cabcutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\cabutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\certutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\conutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\cryputil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\dictutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\dirutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\dlutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\dutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\eseutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\fileutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\gdiputil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\iis7util.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\inetutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\iniutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\jsonutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\locutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\logutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\memutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\metautil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\osutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\pathutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\perfutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\polcutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\procutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\regutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\rexutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\resrutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\reswutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\rmutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\rssutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\sceutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\sczutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\shelutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\sqlutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\srputil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\strutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\svcutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\thmutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\timeutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\uriutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\userutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\wiutil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\wuautil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\xmlutil.h" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+
+    <Fragment>
+        <ComponentGroup Id="WcautilHeaderComponents" Directory="SdkIncludeFolder">
+            <Component>
+                <File Source="build\native\include\wcalog.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\wcautil.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\wcawow64.h" />
+            </Component>
+            <Component>
+                <File Source="build\native\include\wcawrapquery.h" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) .NET Foundation and contributors. All rights reserved. Licensed under the Microsoft Reciprocal License. See LICENSE.TXT file in the project root for full license information. -->
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <Import Project="..\..\packages\WixToolset.Core.InternalPackage.4.0.16\build\WixToolset.Core.InternalPackage.props" Condition="Exists('..\..\packages\WixToolset.Core.InternalPackage.4.0.16\build\WixToolset.Core.InternalPackage.props')" />
+  <Import Project="..\FindLocalWix.props" />
+  <PropertyGroup>
+    <ProjectGuid>{FC691478-732D-4C2D-A19B-272898E83EE9}</ProjectGuid>
+    <OutputName>core</OutputName>
+    <OutputType>Package</OutputType>
+    <Cultures>en-us</Cultures>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CoreMsi.wxs" />
+    <Compile Include="Doc.wxs" />
+    <Compile Include="Extensions.wxs" />
+    <Compile Include="Lux.wxs" />
+    <Compile Include="MSBuild.wxs" />
+    <Compile Include="Swix.wxs" />
+    <Compile Include="Schemas.wxs" />
+    <Compile Include="Toolset.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\WixDistribution.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--
+    <ProjectReference Include="..\..\chm\chm.helpproj">
+      <BuildInParallel>false</BuildInParallel>
+    </ProjectReference>
+    -->
+    <ProjectReference Include="..\CommonLib\CommonLib.wixproj">
+      <Name>CommonLib</Name>
+      <Project>{94d84769-2139-4c9c-811d-9c27327c3bde}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SetupIcons\SetupIcons.vcxproj">
+      <Name>SetupIcons</Name>
+      <Project>{67c54fed-0b77-4c47-92aa-bf913e16d4a4}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BindInputPaths Include="..\..">
+      <PropName>Root</PropName>
+    </BindInputPaths>
+  </ItemGroup>
+  <!--
+  <ItemGroup>
+    <WixExtension Include="WixTagExtension">
+      <HintPath>$(OutputPath_x86)WixTagExtension.dll</HintPath>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(OutputPath_x86)WixUtilExtension.dll</HintPath>
+    </WixExtension>
+    <WixExtension Include="WixVSExtension">
+      <Private>False</Private>
+      <HintPath>$(OutputPath_x86)WixVSExtension.dll</HintPath>
+    </WixExtension>
+  </ItemGroup>
+  -->
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' AND Exists('$(WixTargetsPath)') " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="FG-WiX or WiX Toolset build tools (v3.11 or later) must be installed to build this project. To download FG-WiX, go to https://www.firegiant.com/downloads/. To download the WiX Toolset, go to http://wixtoolset.org/releases/." />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Nerdbank.GitVersioning.2.0.41\build\Nerdbank.GitVersioning.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Nerdbank.GitVersioning.2.0.41\build\Nerdbank.GitVersioning.targets'))" />
+    <Error Condition="!Exists('..\..\packages\WixToolset.VisualStudio.wixext.4.0.2\build\WixToolset.VisualStudio.wixext.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WixToolset.VisualStudio.wixext.4.0.2\build\WixToolset.VisualStudio.wixext.targets'))" />
+    <Error Condition="!Exists('..\..\packages\WixToolset.Core.InternalPackage.4.0.16\build\WixToolset.Core.InternalPackage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WixToolset.Core.InternalPackage.4.0.16\build\WixToolset.Core.InternalPackage.props'))" />
+  </Target>
+  <Import Project="..\..\packages\Nerdbank.GitVersioning.2.0.41\build\Nerdbank.GitVersioning.targets" Condition="Exists('..\..\packages\Nerdbank.GitVersioning.2.0.41\build\Nerdbank.GitVersioning.targets')" />
+  <Import Project="..\..\packages\WixToolset.VisualStudio.wixext.4.0.2\build\WixToolset.VisualStudio.wixext.targets" Condition="Exists('..\..\packages\WixToolset.VisualStudio.wixext.4.0.2\build\WixToolset.VisualStudio.wixext.targets')" />
+</Project>
