@@ -20,9 +20,9 @@
         <Update Location='!(loc.UpdateUrl)' />
 
         <BootstrapperApplicationRef Id='ManagedBootstrapperApplicationHost'>
-          <Payload Name='BootstrapperCore.config' SourceFile='WixBA.BootstrapperCore.config' />
+          <Payload Name='WixToolset.BootstrapperCore.config' SourceFile='WixBA.BootstrapperCore.config' />
 
-          <Payload SourceFile='WixBA.dll' />
+          <Payload SourceFile='WixToolset.WixBA.dll' />
           <Payload SourceFile='..\..\..\License.txt' />
         </BootstrapperApplicationRef>
 

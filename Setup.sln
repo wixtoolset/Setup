@@ -15,6 +15,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ManagedSdkMsi", "src\Manage
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "NativeSdkMsi", "src\NativeSdkMsi\NativeSdkMsi.wixproj", "{D1931DDB-766C-4886-B8F0-8951840FF836}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixToolset.WixBA", "src\WixToolset.WixBA\WixToolset.WixBA.csproj", "{7C27518B-84AD-4679-8EF4-29DF552CF1AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -69,6 +71,14 @@ Global
 		{D1931DDB-766C-4886-B8F0-8951840FF836}.Release|x64.Build.0 = Release|x64
 		{D1931DDB-766C-4886-B8F0-8951840FF836}.Release|x86.ActiveCfg = Release|x86
 		{D1931DDB-766C-4886-B8F0-8951840FF836}.Release|x86.Build.0 = Release|x86
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Debug|x64.Build.0 = Debug|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Release|x64.ActiveCfg = Release|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Release|x64.Build.0 = Release|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C27518B-84AD-4679-8EF4-29DF552CF1AC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
